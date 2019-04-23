@@ -1,3 +1,21 @@
+body {
+    background-color: blanchedalmond;
+}
+
 h1 {
     color: red
+}
+ul {
+    padding-left: 0;
+}
+#directions-text {
+    display: inline;
+}
+#blank {
+    list-style-type: none;
+    display: inline;
+
+}p {
+    display: inline;
+    padding-right: 20px;
 }
