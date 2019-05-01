@@ -21,16 +21,19 @@ var gameStarted = false;  // FLag to indict if the game has started
 var hasFinished = false;  // Flag for press any key to try again
 var wins = 0              // How many wins the user racks up
 
+//Target a selector above the list
 var userText = document.getElementById("blank"); 
 var lossesText = document.getElementById("losses");
+var directionsText = document.getElementsByClassName("directions-text");
 
-var directionsText = document.getElementById("directions-text");
+/////////////////////////////////////////////////////////////////
+
 
 // -- GAME START FUNCTION -- \\ 
 function resetGame () {
 
-    remainingGuesses = losses;
-    gameStarted = false;
+    remainingGuesses =[];
+    // gameStarted = false;
     
     //Math.floor formula
     currentWordIndex = Math.floor(Math.random() * (selectWords.length));
@@ -41,11 +44,18 @@ function resetGame () {
     guessedLetter = [];
     guessedWord = [];
 
+
     for (var i = 0; i < selectWords[currentWordIndex].length; i++) {
         console.log(selectWords[currentWordIndex]);
-        guessedWord.push();
+        //capture that selectedWord in new var
+
+        //split() that new var - this should be an array of letters
+        //Then compare your guesses to that array
+        guessedWord.push("_");
     }
     }resetGame();
+
+    ///////////////////////////////////////////////
 
     // -- RENDER SCORE -- \
     var renderScore = function () {
@@ -57,8 +67,15 @@ function resetGame () {
         if (guessedLetter === currentWordIndex) {
             console.log(guessedLetter + "win condition!");
 
+            // NEW
+            // for (var i = 0; i < selectWords.length; i++)
+            // guessedWord[i] = ("_");
+
+        
             alert("You're lucky!");
             wins++;
+
+            resetGame();
         
         }
         // if the user doesn't get right letter
@@ -71,29 +88,10 @@ function resetGame () {
                 alert("Try again");
 
                 losses++;
-
-            }currentWordIndex.push(guessedLetter);
-        }resetGame();
-    }
-    // --  OnKeyUP FUNCTION -- \
-    document.onkeyup = function(event) {
-        
-        userGuess = event.key
-        console.log(userGuess);
-        userText.textContent = event.key.toLowerCase();
-
-        // Randomly chooses a choice from the options array. This is the Computer's guess.
-        // var guessedWord = selectWords[Math.floor(Math.random() * selectWords.length)];
-        // currentWordIndex = Math.floor(Math.random() * (selectWords.length));
-        // console.log(selectWords.length);
-        
-         // Hide the directions
-         directionsText.textContent = "";
-         renderScore();
-         
-        //  guessedWord.push(guessedLetter)
-      }
-      function displayGuessesLetter () { // function to display letterGuessed}
+                resetGame();
+            }
+           
+            function displayGuessesLetter () { // function to display letterGuessed}
             document.getElementById("letterGuess").innerHTML = "Guessed Letter : " + guessedLetter;
             }displayGuessesLetter();
 
@@ -105,10 +103,29 @@ function resetGame () {
                 document.getElementById("losses").innerHTML = "Losses : " + losses;
                 }displaylosses();
 
-
             function displayRemaininguess () { //function to display loss in HTML
-                document.getElementById("remainingGuesses").innerHTML = " Remaining Guesses : " + remainingGuesses;
+                document.getElementById("remainingGuesses").innerHTML = "Remaining Guesses : " + remainingGuesses;
                 }displayRemaininguess();
 
+        }
+    }
+    //////////////////////////////////////
+
+    // --  OnKeyUP FUNCTION -- \
+    document.onkeyup = function(event) {
+        
+        userGuess = event.key
+        console.log(userGuess);
+        
+        userText.innerHTML = event.key.toLowerCase();
+        
+         // Hide the directions
+         directionsText.innerHTML = "";
+         renderScore();
+
+         
+         
+      }
+      
 
     
