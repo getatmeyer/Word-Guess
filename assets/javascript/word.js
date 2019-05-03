@@ -47,10 +47,7 @@ function resetGame () {
 
     for (var i = 0; i < selectWords[currentWordIndex].length; i++) {
         console.log(selectWords[currentWordIndex]);
-        //capture that selectedWord in new var
 
-        //split() that new var - this should be an array of letters
-        //Then compare your guesses to that array
         guessedWord.push("_");
     }
     }resetGame();
@@ -68,8 +65,8 @@ function resetGame () {
             console.log(guessedLetter + "win condition!");
 
             // NEW
-            // for (var i = 0; i < selectWords.length; i++)
-            // guessedWord[i] = ("_");
+            for (var i = 0; i < selectWords.length; i++)
+            guessedWord[i] = ("_");
 
         
             alert("You're lucky!");
