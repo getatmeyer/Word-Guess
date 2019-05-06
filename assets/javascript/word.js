@@ -44,12 +44,20 @@ function resetGame () {
     guessedLetter = [];
     guessedWord = [];
 
-
     for (var i = 0; i < selectWords[currentWordIndex].length; i++) {
+
         console.log(selectWords[currentWordIndex]);
 
+        // WHAT AM I DOING WRONG
+        // var selectWords = newselectWord.split();
+        console.log(newselectWord);
+        
+
+        
         guessedWord.push("_");
     }
+    console.log(guessedWord + "guesseWord blanks");
+    
     }resetGame();
 
     ///////////////////////////////////////////////
@@ -68,10 +76,9 @@ function resetGame () {
             for (var i = 0; i < selectWords.length; i++)
             guessedWord[i] = ("_");
 
-        
             alert("You're lucky!");
             wins++;
-
+            
             resetGame();
         
         }
@@ -120,8 +127,6 @@ function resetGame () {
          directionsText.innerHTML = "";
          renderScore();
 
-         
-         
       }
       
 
