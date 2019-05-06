@@ -47,12 +47,6 @@ function resetGame () {
     for (var i = 0; i < selectWords[currentWordIndex].length; i++) {
 
         console.log(selectWords[currentWordIndex]);
-
-        // WHAT AM I DOING WRONG
-        // var selectWords = newselectWord.split();
-        console.log(newselectWord);
-        
-
         
         guessedWord.push("_");
     }
